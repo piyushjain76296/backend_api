@@ -1,0 +1,12 @@
+.git
+.env
+data/
+*.db
+tickets.db
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
