@@ -1,6 +1,6 @@
 # Backend Intern Ticket System
 
-A production-quality REST API in Golang for a simple ticket management system. Built as part of a Backend Intern Assignment, this system prioritizes correctness, exact API contract compliance, and clean Go code over unnecessary abstractions.
+A production-quality REST API in Golang for a simple ticket management system. Built for a Backend Intern Assignment, this system prioritizes correctness, exact API contract compliance, and clean Go code.
 
 ## Features
 
@@ -234,7 +234,7 @@ open -> in_progress -> closed
 
 ## Deployment Instructions
 
-Due to environment restrictions, automatic deployment was not performed. To deploy this API for free, follow these manual steps using **Render.com**:
+To deploy this API for free, you can follow these steps using **Render.com**:
 
 1. Push this repository to GitHub.
 2. Sign up / log in to [Render](https://render.com/).
@@ -265,7 +265,7 @@ Health Check:
 ```
 
 ## Assumptions & Design Decisions
-* **Database**: SQLite was chosen as the database as it perfectly balances the assignment's requirements for simplicity and production-readiness without introducing external Docker dependencies (like a PostgreSQL container), keeping the evaluator's setup effort to absolute zero.
+* **Database**: SQLite was chosen to simplify the project setup process and avoid requiring external dependencies like a PostgreSQL container.
 * **Architecture**: A layered architecture (Handlers -> Services -> Repositories) was adopted to ensure separation of concerns and testability, without going into over-engineered hexagonal or clean architecture patterns.
 * **Routing**: Adopted Go 1.22's native `net/http` method routing (`GET /path`) to completely eliminate the need for third-party routers like `chi` or `gorilla/mux`.
 * **Security**: Not leaking data. If a user tries to access another user's ticket by ID, the system returns a `404 Not Found` rather than a `403 Forbidden` to prevent leaking the existence of other users' tickets.
