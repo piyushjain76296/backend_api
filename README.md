@@ -7,6 +7,7 @@ This repository contains a REST API for a ticket management system, built as my 
 * **User Authentication**: Secure registration and login using bcrypt for password hashing and JWT for stateless session management.
 * **Ticket Management**: Full ticket creation and retrieval with strict status lifecycle enforcement (`open` -> `in_progress` -> `closed`).
 * **Data Isolation**: Robust authorization checks ensuring users can only view and modify their own tickets.
+* **Integrated Frontend UI**: A premium, glassmorphic single-page application built with Vanilla HTML/CSS/JS, served directly from the Go backend.
 * **Containerization**: A multi-stage Docker build for a minimal and secure production image.
 
 ## Tech Stack
@@ -23,6 +24,7 @@ I chose a lightweight, layered architecture to keep the codebase maintainable wi
 ```text
 ticket-system/
 ├── cmd/server/main.go          # Application entry point
+├── frontend/                   # Vanilla HTML/CSS/JS static files for the UI
 ├── internal/
 │   ├── api/                    # HTTP handlers and JWT middleware
 │   ├── core/                   # Domain models and business logic (services)
@@ -65,6 +67,7 @@ docker run -p 8080:8080 ticket-system
 The API consumes and produces `application/json`. Requests failing validation or authorization return clear JSON error messages and appropriate HTTP status codes.
 
 ### Public Routes
+* `GET /` - Serves the frontend web interface.
 * `GET /health` - Health check endpoint.
 * `POST /auth/register` - Registers a new user. Requires `email` and `password`.
 * `POST /auth/login` - Authenticates a user and returns a JWT.
