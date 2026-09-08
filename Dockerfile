@@ -28,6 +28,9 @@ RUN apk add --no-cache sqlite-libs
 # Copy binary from builder
 COPY --from=builder /app/server .
 
+# Copy frontend static files
+COPY frontend/ ./frontend/
+
 # Set environment variables
 ENV PORT=8080
 ENV DATABASE_PATH=./data/tickets.db

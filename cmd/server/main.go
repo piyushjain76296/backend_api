@@ -52,6 +52,10 @@ func main() {
 	mux.Handle("GET /tickets/{id}", middleware.AuthMiddleware(http.HandlerFunc(ticketHandler.GetTicket)))
 	mux.Handle("PATCH /tickets/{id}/status", middleware.AuthMiddleware(http.HandlerFunc(ticketHandler.UpdateStatus)))
 
+	// Serve Static Frontend Files
+	fs := http.FileServer(http.Dir("./frontend"))
+	mux.Handle("/", fs)
+
 	log.Printf("Server listening on port %s", port)
 	if err := http.ListenAndServe(":"+port, mux); err != nil {
 		log.Fatalf("Failed to start server: %v", err)

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tickets | EVA Bharat</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <!-- Auth Container -->
+    <div id="auth-container" class="container glass active">
+        <div class="auth-header">
+            <h1>Welcome Back</h1>
+            <p>Sign in to manage your tickets</p>
+        </div>
+        
+        <form id="auth-form">
+            <div id="auth-error" class="error-msg hidden"></div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required placeholder="you@example.com">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required placeholder="••••••••">
+            </div>
+            <button type="submit" class="btn primary-btn" id="auth-submit-btn">Login</button>
+        </form>
+        
+        <div class="auth-toggle">
+            <span id="auth-toggle-text">Don't have an account?</span>
+            <a href="#" id="auth-toggle-link">Register</a>
+        </div>
+    </div>
+
+    <!-- Dashboard Container -->
+    <div id="dashboard-container" class="container glass hidden">
+        <div class="dashboard-header">
+            <div>
+                <h2>My Tickets</h2>
+                <p id="user-email-display">user@example.com</p>
+            </div>
+            <div class="dashboard-actions">
+                <button id="new-ticket-btn" class="btn primary-btn">+ New Ticket</button>
+                <button id="logout-btn" class="btn secondary-btn">Logout</button>
+            </div>
+        </div>
+
+        <div id="tickets-list" class="tickets-grid">
+            <!-- Tickets injected via JS -->
+            <div class="loading-spinner">Loading tickets...</div>
+        </div>
+    </div>
+
+    <!-- Create Ticket Modal -->
+    <div id="ticket-modal" class="modal hidden">
+        <div class="modal-content glass">
+            <h3>Create New Ticket</h3>
+            <form id="create-ticket-form">
+                <div id="ticket-error" class="error-msg hidden"></div>
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" required placeholder="Brief issue summary">
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" required rows="4" placeholder="Detailed description of the issue..."></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn secondary-btn" id="cancel-ticket-btn">Cancel</button>
+                    <button type="submit" class="btn primary-btn">Submit Ticket</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- View/Edit Ticket Modal -->
+    <div id="view-modal" class="modal hidden">
+        <div class="modal-content glass">
+            <div class="view-header">
+                <h3 id="view-title">Ticket Title</h3>
+                <span id="view-status-badge" class="status-badge">open</span>
+            </div>
+            <p id="view-date" class="date-text">Created at ...</p>
+            <div class="view-description">
+                <p id="view-desc">Description goes here...</p>
+            </div>
+            
+            <div class="status-update-section">
+                <label>Update Status:</label>
+                <div class="status-actions">
+                    <button class="btn status-btn" data-status="in_progress" id="btn-in-progress">Mark In Progress</button>
+                    <button class="btn status-btn" data-status="closed" id="btn-closed">Close Ticket</button>
+                </div>
+                <div id="update-error" class="error-msg hidden"></div>
+            </div>
+
+            <div class="modal-actions">
+                <button type="button" class="btn secondary-btn" id="close-view-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/app.js"></script>
+</body>
+</html>
