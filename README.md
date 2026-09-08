@@ -255,13 +255,13 @@ Once deployed, update the section below with your live URLs.
 
 ```text
 GitHub Repository:
-<YOUR_GITHUB_URL>
+https://github.com/piyushjain76296/backend_api
 
 Deployed Application:
-<YOUR_RENDER_URL>
+https://ticket-system-api-dfid.onrender.com
 
 Health Check:
-<YOUR_RENDER_URL>/health
+https://ticket-system-api-dfid.onrender.com/health
 ```
 
 ## Assumptions & Design Decisions
